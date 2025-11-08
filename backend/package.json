@@ -8,16 +8,23 @@
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["express", "socket.io", "ai", "task-management"],
+  "keywords": [
+    "express",
+    "socket.io",
+    "ai",
+    "task-management"
+  ],
   "author": "TaskMuse Team",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
+    "@google/generative-ai": "^0.1.3",
+    "axios": "^1.6.2",
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "socket.io": "^4.6.2",
-    "axios": "^1.6.2",
-    "@google/generative-ai": "^0.1.3"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "socket.io": "^4.6.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
