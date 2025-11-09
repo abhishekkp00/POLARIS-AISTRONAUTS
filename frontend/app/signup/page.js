@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import useAuth from '@/hooks/useAuth'
 
+// Disable static generation for this page
+export const dynamic = 'force-dynamic'
+
 export default function SignupPage() {
   const router = useRouter()
   const { signup, isAuthenticated, loading: authLoading, error: authError } = useAuth()

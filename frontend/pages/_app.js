@@ -1,5 +1,4 @@
 import React from 'react'
-import { ThemeProvider } from 'next-themes'
 import { AuthProvider } from '../context/AuthContext'
 import '../app/globals.css'
 
@@ -11,7 +10,7 @@ class ErrorBoundary extends React.Component {
   static getDerivedStateFromError() {
     return { hasError: true }
   }
-  componentDidCatch(error, info) {
+  componentDidCatch() {
     // You can log to a remote error tracker here
     // console.error('Unhandled error', error, info)
   }
@@ -31,11 +30,9 @@ class ErrorBoundary extends React.Component {
 export default function MyApp({ Component, pageProps }) {
   return (
     <ErrorBoundary>
-      <ThemeProvider attribute="class">
-        <AuthProvider>
-          <Component {...pageProps} />
-        </AuthProvider>
-      </ThemeProvider>
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </ErrorBoundary>
   )
 }

@@ -1,58 +1,33 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import Header from '@/components/Header';
-import TaskBoard from '@/components/TaskBoard';
-import Chat from '@/components/Chat';
-import Heatmap from '@/components/Heatmap';
-import BlockerDashboard from '@/components/BlockerDashboard';
-import DecisionLog from '@/components/DecisionLog';
-import LaunchSequence from '@/components/LaunchSequence';
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import useAuth from '@/hooks/useAuth'
+import LaunchSequence from '@/components/LaunchSequence'
+
+// Disable static generation for this page
+export const dynamic = 'force-dynamic'
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
+  const router = useRouter()
+  const { isAuthenticated, loading } = useAuth()
 
-  if (isLoading) {
-    return (
-      <LaunchSequence 
-        onComplete={() => setIsLoading(false)} 
-        darkMode={darkMode} 
-      />
-    );
+  useEffect(() => {
+    if (!loading) {
+      if (isAuthenticated) {
+        // Redirect authenticated users to dashboard
+        router.push('/dashboard')
+      } else {
+        // Redirect unauthenticated users to login
+        router.push('/login')
+      }
+    }
+  }, [isAuthenticated, loading, router])
+
+  // Show launch sequence while checking auth
+  if (loading) {
+    return <LaunchSequence onComplete={() => {}} darkMode={false} />
   }
 
-  return (
-    <div className={darkMode ? 'dark' : ''}>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
-        <Header 
-          darkMode={darkMode} 
-          toggleDarkMode={() => setDarkMode(!darkMode)} 
-        />
-        
-        <main className="container mx-auto px-4 py-6 space-y-6">
-          {/* Task Board */}
-          <TaskBoard darkMode={darkMode} />
-          
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Chat */}
-            <Chat darkMode={darkMode} />
-            
-            {/* Team Heatmap */}
-            <Heatmap darkMode={darkMode} />
-          </div>
-          
-          {/* Bottom Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Blocker Dashboard */}
-            <BlockerDashboard darkMode={darkMode} />
-            
-            {/* Decision Log */}
-            <DecisionLog darkMode={darkMode} />
-          </div>
-        </main>
-      </div>
-    </div>
-  );
+  return null
 }

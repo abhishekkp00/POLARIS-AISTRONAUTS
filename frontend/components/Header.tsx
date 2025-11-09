@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Wifi, WifiOff } from 'lucide-react';
+import { Moon, Sun, Wifi, WifiOff, LogOut, User } from 'lucide-react';
 import { useSocket } from '@/hooks/useSocket';
 
 interface HeaderProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  user?: { name: string; email: string; role?: string } | null;
+  onLogout?: () => void;
 }
 
 interface HealthScore {
@@ -17,7 +19,7 @@ interface HealthScore {
   message: string;
 }
 
-export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
+export default function Header({ darkMode, toggleDarkMode, user, onLogout }: HeaderProps) {
   const { socket, connected } = useSocket();
   const [healthScore, setHealthScore] = useState<HealthScore>({
     score: 0,
@@ -203,17 +205,42 @@ export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
               </div>
               <div className="text-xs text-white/70">AI Brain</div>
             </div>
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? (
-                <Sun className="w-4 h-4 text-yellow-300" />
-              ) : (
-                <Moon className="w-4 h-4 text-white" />
+            
+            {/* User Info & Controls */}
+            <div className="flex items-center gap-2">
+              {user && (
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-1.5">
+                  <User className="w-3.5 h-3.5 text-white/70" />
+                  <div className="flex flex-col">
+                    <span className="text-xs font-medium text-white">{user.name}</span>
+                    {user.role && <span className="text-[10px] text-white/60">{user.role}</span>}
+                  </div>
+                </div>
               )}
-            </button>
+              
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-colors"
+                aria-label="Toggle dark mode"
+              >
+                {darkMode ? (
+                  <Sun className="w-4 h-4 text-yellow-300" />
+                ) : (
+                  <Moon className="w-4 h-4 text-white" />
+                )}
+              </button>
+              
+              {onLogout && (
+                <button
+                  onClick={onLogout}
+                  className="p-2 rounded-lg bg-red-500/20 backdrop-blur-sm border border-red-300/30 hover:bg-red-500/30 transition-colors"
+                  aria-label="Logout"
+                  title="Logout"
+                >
+                  <LogOut className="w-4 h-4 text-red-300" />
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Second Line: Project + Health + Connection */}

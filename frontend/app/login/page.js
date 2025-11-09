@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import useAuth from '@/hooks/useAuth'
 
+// Disable static generation for this page
+export const dynamic = 'force-dynamic'
+
 export default function LoginPage() {
   const router = useRouter()
   const { login, isAuthenticated, loading: authLoading, error: authError } = useAuth()
@@ -181,7 +184,7 @@ export default function LoginPage() {
           {/* Sign Up Link */}
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <a
                 href="/signup"
                 className="font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition"

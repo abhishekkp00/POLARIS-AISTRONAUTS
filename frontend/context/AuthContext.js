@@ -29,8 +29,8 @@ export function AuthProvider({ children }) {
         localStorage.setItem('authToken', tokenStr)
         localStorage.setItem('authUser', JSON.stringify(userObj))
       }
-    } catch (e) {
-      // ignore
+    } catch {
+      // ignore localStorage errors
     }
   }
 
@@ -42,8 +42,8 @@ export function AuthProvider({ children }) {
         localStorage.removeItem('authToken')
         localStorage.removeItem('authUser')
       }
-    } catch (e) {
-      // ignore
+    } catch {
+      // ignore localStorage errors
     }
   }
 
@@ -101,7 +101,7 @@ export function AuthProvider({ children }) {
             method: 'POST',
             headers: { Authorization: `Bearer ${token}` },
           })
-        } catch (e) {
+        } catch {
           // ignore server logout errors
         }
       }
