@@ -1,3 +1,8 @@
+nohup: ignoring input
+
+> taskmuse-backend@1.0.0 start
+> node server.js
+
 
 🚀 ===================================
 ✅ Server running on port 3001
@@ -10,5 +15,3 @@
   Email: rahul@taskmuse.com | Password: password123
   Email: demo@taskmuse.com  | Password: password123
 
-⚠️  SIGTERM received, shutting down gracefully...
-✅ Server closed

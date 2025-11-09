@@ -10,3 +10,11 @@
  ○ Compiling / ...
  ✓ Compiled / in 6.2s (533 modules)
  HEAD / 200 in 6627ms
+ GET /?id=ac017699-82aa-4d3b-9a68-312684305664&vscodeBrowserReqId=1762651442660 200 in 95ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1006ms (521 modules)
+ HEAD / 200 in 121ms
+ GET /?id=ac017699-82aa-4d3b-9a68-312684305664&vscodeBrowserReqId=1762651503066 200 in 39ms
+ GET /?id=ac017699-82aa-4d3b-9a68-312684305664&vscodeBrowserReqId=1762651508024 200 in 34ms
+ GET /?id=ac017699-82aa-4d3b-9a68-312684305664&vscodeBrowserReqId=1762651565760 200 in 35ms
+[?25h

@@ -1,0 +1,131 @@
+nohup: ignoring input
+
+> frontend@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+ ⚠ Port 3002 is in use, trying 3003 instead.
+  ▲ Next.js 14.2.33
+  - Local:        http://localhost:3003
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.5s
+ ○ Compiling / ...
+ ✓ Compiled /dashboard in 7.3s (528 modules)
+ GET /?id=ac017699-82aa-4d3b-9a68-312684305664&vscodeBrowserReqId=1762651700098 200 in 6929ms
+ GET / 200 in 35ms
+ ✓ Compiled /favicon.ico in 436ms (302 modules)
+ GET /favicon.ico 200 in 568ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 738ms (552 modules)
+ HEAD / 200 in 152ms
+ GET /login?id=ac017699-82aa-4d3b-9a68-312684305664&vscodeBrowserReqId=1762651789325 200 in 57ms
+ ✓ Compiled in 1946ms (529 modules)
+ ✓ Compiled in 626ms (529 modules)
+ ✓ Compiled in 736ms (529 modules)
+ ✓ Compiled in 635ms (529 modules)
+ ✓ Compiled in 941ms (529 modules)
+ ✓ Compiled in 665ms (529 modules)
+ ⨯ ./app/dashboard/page.js
+Error: 
+  [31mx[0m Unterminated regexp literal
+     ,-[[36;1;4m/home/abhishek/POLARIS/frontend/app/dashboard/page.js[0m:441:1]
+ [2m441[0m |               </div>
+ [2m442[0m |             </div>
+ [2m443[0m |           </div>
+ [2m444[0m |         </main>
+     : [31;1m         ^^^^^^[0m
+ [2m445[0m | 
+ [2m446[0m |         {/* RIGHT PERFORMANCE PANEL */}
+ [2m447[0m |         <aside className={`${rightPanelOpen ? 'w-96' : 'w-0'} ${darkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-200'} border-l transition-all duration-300 overflow-hidden sticky top-20 h-[calc(100vh-5rem)]`}>
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/dashboard/page.js
+ ○ Compiling /_error ...
+ ⨯ ./app/dashboard/page.js
+Error: 
+  [31mx[0m Unterminated regexp literal
+     ,-[[36;1;4m/home/abhishek/POLARIS/frontend/app/dashboard/page.js[0m:441:1]
+ [2m441[0m |               </div>
+ [2m442[0m |             </div>
+ [2m443[0m |           </div>
+ [2m444[0m |         </main>
+     : [31;1m         ^^^^^^[0m
+ [2m445[0m | 
+ [2m446[0m |         {/* RIGHT PERFORMANCE PANEL */}
+ [2m447[0m |         <aside className={`${rightPanelOpen ? 'w-96' : 'w-0'} ${darkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-200'} border-l transition-all duration-300 overflow-hidden sticky top-20 h-[calc(100vh-5rem)]`}>
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/dashboard/page.js
+ GET /dashboard 500 in 84ms
+ GET /dashboard 500 in 81ms
+ ⨯ ./app/dashboard/page.js
+Error: 
+  [31mx[0m Unterminated regexp literal
+     ,-[[36;1;4m/home/abhishek/POLARIS/frontend/app/dashboard/page.js[0m:441:1]
+ [2m441[0m |               </div>
+ [2m442[0m |             </div>
+ [2m443[0m |           </div>
+ [2m444[0m |         </main>
+     : [31;1m         ^^^^^^[0m
+ [2m445[0m | 
+ [2m446[0m |         {/* RIGHT PERFORMANCE PANEL */}
+ [2m447[0m |         <aside className={`${rightPanelOpen ? 'w-96' : 'w-0'} ${darkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-200'} border-l transition-all duration-300 overflow-hidden sticky top-20 h-[calc(100vh-5rem)]`}>
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/dashboard/page.js
+ GET /_next/static/webpack/81434b59a2478f4b.webpack.hot-update.json 500 in 1476ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /dashboard 200 in 12ms
+ GET /dashboard 500 in 50ms
+ GET /dashboard 500 in 53ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/home/abhishek/POLARIS/frontend/.next/cache/webpack/client-development-fallback/0.pack.gz_' -> '/home/abhishek/POLARIS/frontend/.next/cache/webpack/client-development-fallback/0.pack.gz'
+ ✓ Compiled /_not-found in 1920ms (769 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled (756 modules)
+ GET /dashboard 200 in 543ms
+ GET /dashboard 200 in 516ms
+ ✓ Compiled in 799ms (769 modules)
+ ✓ Compiled in 974ms (769 modules)
+ ✓ Compiled in 870ms (769 modules)
+ GET /dashboard?id=ac017699-82aa-4d3b-9a68-312684305664&vscodeBrowserReqId=1762651994952 200 in 130ms
+ GET /dashboard 200 in 44ms
+ GET /login 200 in 65ms
+ ✓ Compiled in 2.4s (766 modules)
+ ✓ Compiled in 1544ms (766 modules)
+ ✓ Compiled in 1253ms (766 modules)
+ ✓ Compiled in 1462ms (766 modules)
+ ✓ Compiled in 872ms (766 modules)
+ ✓ Compiled in 2s (766 modules)
+ ✓ Compiled in 958ms (766 modules)
+ ✓ Compiled in 782ms (766 modules)
+ ✓ Compiled in 1875ms (766 modules)
+ ✓ Compiled in 1474ms (766 modules)
+ ✓ Compiled in 1294ms (766 modules)
+ ✓ Compiled in 1463ms (766 modules)
+ ✓ Compiled in 1574ms (766 modules)
+ GET /dashboard?id=ac017699-82aa-4d3b-9a68-312684305664&vscodeBrowserReqId=1762652306170 200 in 160ms
+ ✓ Compiled in 1186ms (766 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 673ms (317 modules)
+ HEAD / 200 in 889ms
+ GET / 200 in 44ms
+ GET /login 200 in 52ms
+ GET /dashboard 200 in 63ms
+ GET / 200 in 61ms
+ GET /login 200 in 34ms
+ GET /dashboard 200 in 33ms
