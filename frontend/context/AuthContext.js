@@ -1,12 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 
 const AuthContext = createContext(null)
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || '' // e.g. http://localhost:3001
 
 export function AuthProvider({ children }) {
-  const router = useRouter()
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -107,7 +105,6 @@ export function AuthProvider({ children }) {
       }
       clearSession()
       setLoading(false)
-      router.push('/login')
       return { success: true }
     } catch (err) {
       setError(err.message)
