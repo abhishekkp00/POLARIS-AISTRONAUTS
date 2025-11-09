@@ -1,12 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import useAuth from '@/hooks/useAuth'
 import ProtectedRoute from '@/components/auth/ProtectedRoute'
 import Chat from '@/components/dashboard/Chat'
-
-export const dynamic = 'force-dynamic'
 
 // Demo task data
 const DEMO_TASKS = [
@@ -40,7 +37,6 @@ const ACTIVITIES = [
 ]
 
 function DashboardContent() {
-  const router = useRouter()
   const { user, logout } = useAuth()
   
   const [darkMode, setDarkMode] = useState(false)
@@ -70,7 +66,7 @@ function DashboardContent() {
 
   const handleLogout = async () => {
     await logout()
-    router.push('/login')
+    window.location.href = '/login'
   }
 
   const getTasksByStatus = (status) => {
