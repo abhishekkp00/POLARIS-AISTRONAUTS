@@ -22,7 +22,7 @@ export default function DashboardPage() {
   const [darkMode, setDarkMode] = useState(false);
 
   // Socket.IO hook
-  const { socket, connectionStatus, statusDisplay, isConnected } = useSocket();
+  const { socket, statusDisplay, isConnected } = useSocket();
 
   // Notification system
   const { notifications, showNotification, removeNotification } = useNotifications();
@@ -30,7 +30,6 @@ export default function DashboardPage() {
   // Component states
   const [chatMessages, setChatMessages] = useState([]);
   const [tasks, setTasks] = useState([]);
-  const [contributions, setContributions] = useState([]);
   const [blockers, setBlockers] = useState([]);
   const [decisions, setDecisions] = useState([]);
   const [healthScore, setHealthScore] = useState({
@@ -47,7 +46,6 @@ export default function DashboardPage() {
     const setters = {
       setChatMessages,
       setTasks,
-      setContributions,
       setBlockers,
       setDecisions,
       setHealthScore,
@@ -95,51 +93,51 @@ export default function DashboardPage() {
   };
 
   // Example: Update task progress
-  const handleTaskProgressChange = (taskId, newProgress) => {
-    if (!socket || !isConnected) {
-      showNotification({
-        type: 'error',
-        message: '🔴 Cannot update task - not connected',
-        duration: 3000,
-      });
-      return;
-    }
+  // const handleTaskProgressChange = (taskId, newProgress) => {
+  //   if (!socket || !isConnected) {
+  //     showNotification({
+  //       type: 'error',
+  //       message: '🔴 Cannot update task - not connected',
+  //       duration: 3000,
+  //     });
+  //     return;
+  //   }
 
-    const task = tasks.find((t) => t.id === taskId);
-    socketEmitters.updateTaskProgress(socket, taskId, newProgress, task?.assigned_to);
-  };
+  //   const task = tasks.find((t) => t.id === taskId);
+  //   socketEmitters.updateTaskProgress(socket, taskId, newProgress, task?.assigned_to);
+  // };
 
   // Example: Update task status
-  const handleTaskStatusChange = (taskId, newStatus) => {
-    if (!socket || !isConnected) {
-      showNotification({
-        type: 'error',
-        message: '🔴 Cannot update task - not connected',
-        duration: 3000,
-      });
-      return;
-    }
+  // const handleTaskStatusChange = (taskId, newStatus) => {
+  //   if (!socket || !isConnected) {
+  //     showNotification({
+  //       type: 'error',
+  //       message: '🔴 Cannot update task - not connected',
+  //       duration: 3000,
+  //     });
+  //     return;
+  //   }
 
-    const task = tasks.find((t) => t.id === taskId);
-    socketEmitters.updateTaskStatus(socket, taskId, newStatus, task?.status);
-  };
+  //   const task = tasks.find((t) => t.id === taskId);
+  //   socketEmitters.updateTaskStatus(socket, taskId, newStatus, task?.status);
+  // };
 
   // Example: Submit task for AI analysis
-  const handleTaskSubmit = (taskId) => {
-    if (!socket || !isConnected) {
-      showNotification({
-        type: 'error',
-        message: '🔴 Cannot submit task - not connected',
-        duration: 3000,
-      });
-      return;
-    }
+  // const handleTaskSubmit = (taskId) => {
+  //   if (!socket || !isConnected) {
+  //     showNotification({
+  //       type: 'error',
+  //       message: '🔴 Cannot submit task - not connected',
+  //       duration: 3000,
+  //     });
+  //     return;
+  //   }
 
-    const task = tasks.find((t) => t.id === taskId);
-    if (task) {
-      socketEmitters.submitTask(socket, task);
-    }
-  };
+  //   const task = tasks.find((t) => t.id === taskId);
+  //   if (task) {
+  //     socketEmitters.submitTask(socket, task);
+  //   }
+  // };
 
   // Example: Report blocker
   const handleReportBlocker = (blocker, severity) => {
@@ -156,18 +154,18 @@ export default function DashboardPage() {
   };
 
   // Example: Log decision
-  const handleLogDecision = (decision, impact) => {
-    if (!socket || !isConnected) {
-      showNotification({
-        type: 'error',
-        message: '🔴 Cannot log decision - not connected',
-        duration: 3000,
-      });
-      return;
-    }
+  // const handleLogDecision = (decision, impact) => {
+  //   if (!socket || !isConnected) {
+  //     showNotification({
+  //       type: 'error',
+  //       message: '🔴 Cannot log decision - not connected',
+  //       duration: 3000,
+  //     });
+  //     return;
+  //   }
 
-    socketEmitters.logDecision(socket, decision, impact);
-  };
+  //   socketEmitters.logDecision(socket, decision, impact);
+  // };
 
   return (
     <div
